@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using Our.Umbraco.EnvironmentDashboard.Models;
@@ -26,19 +25,6 @@ namespace Our.Umbraco.EnvironmentDashboard.Groups
 			}
 
 			return new []{ infoGroup };
-		}
-	}
-
-	public class UptimeDashboardGroupsProvider : IDashboardGroupsProvider
-	{
-		public IEnumerable<InfoGroup> GetGroups(DashboardEnvironment environment)
-		{
-			var infoGroup = new InfoGroup("Server Information");
-			infoGroup.Pairs.Add(new InfoPair("Machine Name", Environment.MachineName));
-			infoGroup.Pairs.Add(new InfoPair("Processor Core Count", Environment.ProcessorCount.ToString("D")));
-			infoGroup.Pairs.Add(new InfoPair("Uptime", TimeSpan.FromMilliseconds(Environment.TickCount).ToString("c")));
-
-			return new[] { infoGroup };
 		}
 	}
 }

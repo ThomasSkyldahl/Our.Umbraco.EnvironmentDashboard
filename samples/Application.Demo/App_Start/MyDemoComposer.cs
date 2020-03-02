@@ -19,7 +19,7 @@ namespace Application.Demo
 				            {new DashboardEnvironment("Production"), new[] {"environmentdashboard.ry.com"}},
 			            })
 			           .Append<UptimeDashboardGroupsProvider>()
-			           .Append<DatabaseServerGroupsProvider>();
+			           .Append(f => new DatabaseServerGroupsProvider());
 
 		}
 	}
